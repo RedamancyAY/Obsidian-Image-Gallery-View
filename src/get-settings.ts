@@ -12,15 +12,12 @@ const getSettings = (src: string, container: HTMLElement) => {
     throw new Error(error)
   }
 
-  if (!settingsSrc.path) {
-    const error = 'Please specify a path!'
-    renderError(container, error)
-    throw new Error(error)
-  }
 
   // store settings, normalize and set sensible defaults
   const settings = {
     path: undefined as string,
+    prefix: undefined as string,
+    pattern: undefined as string,
     type: undefined as string,
     radius: undefined as number,
     gutter: undefined as string,
@@ -31,7 +28,9 @@ const getSettings = (src: string, container: HTMLElement) => {
     height: undefined as number,
   }
 
-  settings.path = normalizePath(settingsSrc.path)
+  settings.path = settingsSrc.path ? normalizePath(settingsSrc.path) : '/'
+  settings.prefix = settingsSrc.prefix ?? ''
+  settings.pattern = settingsSrc.pattern ?? ''
   settings.type = settingsSrc.type ?? 'horizontal'
   settings.radius = settingsSrc.radius ?? 0
   settings.gutter = settingsSrc.gutter ?? 8
