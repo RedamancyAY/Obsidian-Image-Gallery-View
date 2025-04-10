@@ -894,3 +894,44 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 .lg-toolbar .btn-glob-search:after {
   content: '';
 }
+
+
+/* 确保图片和名称在列布局中不被分割 */
+.image-wrapper {
+  break-inside: avoid !important;
+  -webkit-column-break-inside: avoid !important;
+  page-break-inside: avoid !important;
+  display: block !important;
+}
+
+/* 添加图片名称样式 */
+.img-name {
+  display: block !important;
+  width: 100% !important;
+  margin-top: 1px !important;
+  border-radius: 2px;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important; /* 确保单行显示 */
+  font-size: 0.85rem;
+  transition: opacity 0.1s ease;
+  box-sizing: border-box !important;
+  cursor: default; /* 显示默认鼠标样式，表示有额外信息 */
+}
+
+/* 悬停时样式可选 */
+.img-name:hover {
+  opacity: 0.9;
+}
+
+/* 适应暗色模式 */
+.theme-dark .img-name {
+  background-color: var(--background-secondary);
+  color: var(--text-normal);
+}
+
+/* 适应亮色模式 */
+.theme-light .img-name {
+  background-color: var(--background-secondary);
+  color: var(--text-normal);
+}

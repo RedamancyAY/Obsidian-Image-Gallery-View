@@ -30,6 +30,7 @@ const getSettings = (src: string, container: HTMLElement) => {
     borderWidth: undefined as number,
     borderColor: undefined as string,
     borderType: undefined as string,
+    showName: undefined as boolean,
   }
 
   settings.path = settingsSrc.path ? normalizePath(settingsSrc.path) : '/'
@@ -54,6 +55,7 @@ const getSettings = (src: string, container: HTMLElement) => {
   settings.borderWidth = settingsSrc.borderWidth ?? 1
   settings.borderColor = settingsSrc.borderColor ?? '#cccccc'
   settings.borderType = settingsSrc.borderType ?? 'solid'
+  settings.showName = settingsSrc.showName ?? false
 
   return settings
 }
