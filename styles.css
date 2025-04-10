@@ -917,6 +917,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   transition: opacity 0.1s ease;
   box-sizing: border-box !important;
   cursor: default; /* 显示默认鼠标样式，表示有额外信息 */
+  text-align: center !important;
 }
 
 /* 悬停时样式可选 */

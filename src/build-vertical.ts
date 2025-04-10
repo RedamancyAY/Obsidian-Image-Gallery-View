@@ -20,14 +20,18 @@ const buildVertical = (
     wrapper.style.breakInside = 'avoid' // 防止在列布局中被分割
     wrapper.style.display = 'block' // 确保块级显示
 
+    // 创建网格项作为lightbox的触发元素
     const figure = wrapper.createEl('div')
     figure.addClass('grid-item')
     figure.style.width = '100%'
     figure.style.height = 'auto'
     figure.style.cursor = 'pointer'
     figure.setAttribute('data-name', file.name)
-    figure.setAttribute('data-folder', file.folder) // 修正：使用 file.folder
+    figure.setAttribute('data-folder', file.folder)
+    // 重要：确保data-src属性正确设置
     figure.setAttribute('data-src', file.uri)
+    // 添加子标题数据
+    figure.setAttribute('data-sub-html', `<h4>${file.name}</h4>`)
 
     const img = figure.createEl('img')
     img.style.borderRadius = `${settings.radius}px`
