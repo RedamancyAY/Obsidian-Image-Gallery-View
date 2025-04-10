@@ -26,6 +26,10 @@ const getSettings = (src: string, container: HTMLElement) => {
     mobile: undefined as number,
     columns: undefined as number,
     height: undefined as number,
+    border: false,
+    borderWidth: undefined as number,
+    borderColor: undefined as string,
+    borderType: undefined as string,
   }
 
   settings.path = settingsSrc.path ? normalizePath(settingsSrc.path) : '/'
@@ -44,6 +48,12 @@ const getSettings = (src: string, container: HTMLElement) => {
 
   // settings for horizontal mansory only
   settings.height = settingsSrc.height ?? 260
+
+
+  settings.border = settingsSrc.border ?? false
+  settings.borderWidth = settingsSrc.borderWidth ?? 1
+  settings.borderColor = settingsSrc.borderColor ?? '#cccccc'
+  settings.borderType = settingsSrc.borderType ?? 'solid'
 
   return settings
 }

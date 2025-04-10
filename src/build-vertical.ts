@@ -25,6 +25,10 @@ const buildVertical = (
       const img = figure.createEl('img')
       img.style.borderRadius = `${settings.radius}px`
       img.src = file.uri
+      if (settings.border) {
+        img.style.border = `${settings.borderWidth}px ${settings.borderType} ${settings.borderColor}`
+        img.style.boxSizing = 'border-box'
+      }
     })
 
     return gallery

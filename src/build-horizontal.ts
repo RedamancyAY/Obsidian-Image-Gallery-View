@@ -31,6 +31,10 @@ const buildHorizontal = (
     img.style.height = '100%'
     img.style.borderRadius = '0px'
     img.src = file.uri
+    if (settings.border) {
+      img.style.border = `${settings.borderWidth}px ${settings.borderType} ${settings.borderColor}`
+      img.style.boxSizing = 'border-box'
+    }
   })
 
   return gallery
